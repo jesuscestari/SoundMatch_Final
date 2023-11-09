@@ -1,6 +1,6 @@
 import getSongs from "@/actions/getSongs";
 import Header from "./components/Header";
-import ListItem from "./components/ListItem";
+
 import PageContent from "./components/PageContent";
 
 export const revalidate = 0; // Revalida la pagina para que no guarde cache y siempre se muestre los efectos actualizados
@@ -19,7 +19,7 @@ export default async function Home() {
           font-semibold
           "
           >
-            Welcome back!
+            SoundMatch
           </h1>
           <div
             className="
@@ -31,13 +31,7 @@ export default async function Home() {
             gap-3
             mt-4
           "
-          >
-            <ListItem
-              image="/images/liked.png"
-              name="Liked Songs"
-              href="liked"
-            />
-          </div>
+          ></div>
         </div>
       </Header>
       <div className="mt-2 mb-7 px-6">

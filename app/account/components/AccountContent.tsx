@@ -9,6 +9,8 @@ import useSubscribeModal from "@/hooks/useSubscribeModal";
 import { postData } from "@/libs/helpers";
 import Button from "@/app/(site)/components/Button";
 
+export const revalidate = 0;
+
 const AccountContent = () => {
   const router = useRouter();
   const subscribeModal = useSubscribeModal();
@@ -37,10 +39,18 @@ const AccountContent = () => {
 
   return (
     <div className="mb-7 px-6">
+      <div>
+        <img src={user?.user_metadata?.avatar_url} alt="Imagen perfil" /> <br />
+        {user?.email}
+      </div>
+
       {!subscription && (
         <div className="flex flex-col gap-y-4">
           <p>No active plan.</p>
-          <Button onClick={subscribeModal.onOpen} className="w-[300px]">
+          <Button
+            onClick={subscribeModal.onOpen}
+            className="w-[300px] bg-violet-500"
+          >
             Subscribe
           </Button>
         </div>
@@ -55,7 +65,7 @@ const AccountContent = () => {
           <Button
             disabled={loading || isLoading}
             onClick={redirectToCustomerPortal}
-            className="w-[300px]"
+            className="w-[300px] bg-violet-500"
           >
             Open customer portal
           </Button>

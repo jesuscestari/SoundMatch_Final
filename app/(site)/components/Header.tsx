@@ -5,6 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
+import { AiFillHeart } from "react-icons/ai";
 import Button from "./Button";
 import { useUser } from "@/hooks/useUser";
 import useAuthModal from "@/hooks/useAuthModal";
@@ -80,6 +81,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
 
         <div className="flex md:hidden gap-x-2 items-center ">
           <button
+            onClick={() => router.push("/")}
             className="
           rounded-full
           p-2
@@ -94,6 +96,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             <HiHome className="text-black" size={20} />
           </button>
           <button
+            onClick={() => router.push("/liked")}
             className="
           rounded-full
           p-2
@@ -105,7 +108,26 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           transition
           "
           >
-            <BiSearch className="text-black" size={20} />
+            <AiFillHeart className="text-black" size={20} />
+          </button>
+
+          <button
+            className="
+          rounded-full
+          p-2
+          bg-white
+          flex
+          items-center
+          justify-center
+          hover:opacity-75
+          transition
+          "
+          >
+            <BiSearch
+              onClick={() => router.push("/search")}
+              className="text-black"
+              size={20}
+            />
           </button>
         </div>
         <div className="flex justify-between items-center gap-x-4">

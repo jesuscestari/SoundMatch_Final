@@ -27,10 +27,17 @@ const Search = async ({ searchParams }: SearchProps) => {
     >
       <Header className="from-bg-neutral-900">
         <div className="mb-2 flex flex-col gap-y-6">
-          <h1 className="text-white text-3xl font-semibold">Search</h1>
+          <h1 className="text-white text-3xl font-semibold">
+            Search Sound Effect
+          </h1>
           <SearchInput />
         </div>
       </Header>
+
+      <h3 className="text-white text-3xl mb-4 font-semibold text-center">
+        Suggestions
+      </h3>
+
       <SearchContent songs={songs} />
     </div>
   );

@@ -108,7 +108,7 @@ const UploadModal = () => {
 
   return (
     <Modal
-      title="Add a song"
+      title="Add a Sound Effect"
       description="Upload an mp3 file"
       isOpen={uploadModal.isOpen}
       onChange={onChange}
@@ -122,9 +122,10 @@ const UploadModal = () => {
         />
         <Input
           id="author"
-          disabled={isLoading}
+          disabled
           {...register("author", { required: true })}
           placeholder="Song author"
+          value={user?.user_metadata?.full_name} //autocompleta el nombre del usuario
         />
         <div>
           <div className="pb-1">Select a song file</div>
