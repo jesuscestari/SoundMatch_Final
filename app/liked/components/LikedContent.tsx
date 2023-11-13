@@ -8,7 +8,7 @@ import { useUser } from "@/hooks/useUser";
 import MediaItem from "@/app/(site)/components/MediaItem";
 import LikeButton from "@/app/(site)/components/LikeButton";
 import useOnPlay from "@/hooks/useOnPlay";
-import { AiTwotoneLike } from "react-icons/ai";
+import DButton from "@/app/(site)/components/DButton";
 
 interface LikedContentProps {
   songs: Efecto[];
@@ -50,6 +50,7 @@ const LikedContent: React.FC<LikedContentProps> = ({ songs }) => {
           </div>
 
           <LikeButton songId={song.id} />
+          <DButton songId={song.id} />
         </div>
       ))}
     </div>

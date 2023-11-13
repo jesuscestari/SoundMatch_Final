@@ -13,6 +13,7 @@ import { Efecto } from "@/types";
 import usePlayer from "@/hooks/usePlayer";
 import { twMerge } from "tailwind-merge";
 import { useUser } from "@/hooks/useUser";
+import { BiBookmarkHeart } from "react-icons/bi";
 
 interface SidebarProps {
   children: React.ReactNode;
@@ -28,14 +29,15 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
     () => [
       {
         icon: HiHome,
+
         label: "Home",
         active: pathname !== "/search",
         href: "/",
       },
 
       {
-        icon: AiFillHeart,
-        label: "Liked ",
+        icon: BiBookmarkHeart,
+        label: "Saved ",
         active: pathname === "/liked",
         href: "/liked",
       },

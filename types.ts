@@ -5,6 +5,7 @@ export interface Efecto {
   user_id: string;
   autor: string;
   titulo: string;
+  puntos: number;
   efecto_path: string;
   imagen_path: string;
 }

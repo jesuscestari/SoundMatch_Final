@@ -50,7 +50,7 @@ const Liked = async () => {
                   font-bold
                 "
               >
-                Saved Sound Effects
+                Saved
               </h1>
             </div>
           </div>
