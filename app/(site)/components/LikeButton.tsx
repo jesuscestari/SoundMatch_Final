@@ -5,9 +5,9 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { useSessionContext } from "@supabase/auth-helpers-react";
-
 import { useUser } from "@/hooks/useUser";
 import useAuthModal from "@/hooks/useAuthModal";
+import { supabase } from "@supabase/auth-ui-shared";
 
 interface LikeButtonProps {
   songId: string;
@@ -66,6 +66,8 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
         efectos_id: songId,
         user_id: user.id,
       });
+      //SUMAR LIKE llamando a la funcion o stored "incremento" EN SUPABASE
+      await supabaseClient.rpc("incremento", { row_id: songId });
 
       if (error) {
         toast.error(error.message);

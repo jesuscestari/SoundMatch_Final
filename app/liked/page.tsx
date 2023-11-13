@@ -12,8 +12,8 @@ const Liked = async () => {
   return (
     <div
       className="
-        bg-neutral-900 
-        rounded-lg 
+        bg-gray-900 
+      
         h-full 
         w-full 
         overflow-hidden 
@@ -35,12 +35,12 @@ const Liked = async () => {
               <Image
                 className="object-cover"
                 fill
-                src="/images/liked.png"
+                src="/images/guardado.png"
                 alt="Playlist"
               />
             </div>
             <div className="flex flex-col gap-y-2 mt-4 md:mt-0">
-              <p className="hidden md:block font-semibold text-sm">Playlist</p>
+              <p className="hidden md:block font-semibold text-sm">Saved</p>
               <h1
                 className="
                   text-white 
@@ -50,7 +50,7 @@ const Liked = async () => {
                   font-bold
                 "
               >
-                Liked Songs
+                Saved Sound Effects
               </h1>
             </div>
           </div>

@@ -6,6 +6,7 @@ import useLoadImage from "@/hooks/useLoadImage";
 import { Efecto } from "@/types";
 
 import PlayButton from "./PlayButton";
+import { AiTwotoneLike } from "react-icons/ai";
 
 interface SongItemProps {
   data: Efecto;
@@ -28,7 +29,7 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
         rounded-md 
         overflow-hidden 
         gap-x-4 
-        bg-neutral-400/5 
+        bg-violet-300/20
         cursor-pointer 
         hover:bg-neutral-400/10 
         transition 
@@ -64,6 +65,10 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
           "
         >
           By {data.autor}
+        </p>
+        <p className="flex">
+          <AiTwotoneLike size={20} />
+          <span className="pl-1">{data.puntos}</span>
         </p>
       </div>
       <div

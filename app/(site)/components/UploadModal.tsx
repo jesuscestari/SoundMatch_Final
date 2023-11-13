@@ -122,10 +122,9 @@ const UploadModal = () => {
         />
         <Input
           id="author"
-          disabled
+          disabled={isLoading}
           {...register("author", { required: true })}
           placeholder="Song author"
-          value={user?.user_metadata?.full_name} //autocompleta el nombre del usuario
         />
         <div>
           <div className="pb-1">Select a song file</div>

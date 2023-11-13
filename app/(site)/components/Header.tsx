@@ -47,37 +47,14 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
         `
   h-fit
   bg-gradient-to-b
-  from-violet-900
+  from-violet-900/90
   p-6
   `,
         className
       )}
     >
       <div className="w-full mb-4 flex items-center justify-between">
-        <div className="hidden md:flex gap-x-2 items-center">
-          <button
-            onClick={() => router.back()}
-            className="rounded-full 
-          bg-black 
-          flex 
-          items-center 
-          hover:opacity-75 
-          transition"
-          >
-            <RxCaretLeft className="text-white" size={35} />
-          </button>
-          <button
-            onClick={() => router.forward()}
-            className="rounded-full 
-          bg-black 
-          flex 
-          items-center 
-          hover:opacity-75 
-          transition"
-          >
-            <RxCaretRight className="text-white" size={35} />
-          </button>
-        </div>
+        <div className="hidden md:flex gap-x-2 items-center"></div>
 
         <div className="flex md:hidden gap-x-2 items-center ">
           <button

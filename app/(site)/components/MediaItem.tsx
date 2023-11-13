@@ -5,6 +5,7 @@ import Image from "next/image";
 import useLoadImage from "@/hooks/useLoadImage";
 import { Efecto } from "@/types";
 import usePlayer from "@/hooks/usePlayer";
+import { AiTwotoneLike } from "react-icons/ai";
 
 interface MediaItemProps {
   data: Efecto;
@@ -50,12 +51,16 @@ const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
           fill
           src={imageUrl || "/images/liked.png"}
           alt="MediaItem"
-          className="object-cover"
+          className="object-cover "
         />
       </div>
       <div className="flex flex-col gap-y-1 overflow-hidden">
         <p className="text-white truncate">{data.titulo}</p>
         <p className="text-neutral-400 text-sm truncate">By {data.autor}</p>
+        <div className="pt-1  flex text-neutral-400 text-sm truncate">
+          <AiTwotoneLike size={20} />
+          <span className="pl-1">{data.puntos}</span>
+        </div>
       </div>
     </div>
   );

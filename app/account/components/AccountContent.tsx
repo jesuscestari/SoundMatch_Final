@@ -38,9 +38,14 @@ const AccountContent = () => {
   };
 
   return (
-    <div className="mb-7 px-6">
+    <div className="mb-7 px-6 ">
       <div>
-        <img src={user?.user_metadata?.avatar_url} alt="Imagen perfil" /> <br />
+        <img
+          src={"https://cdn-icons-png.flaticon.com/512/6681/6681204.png"}
+          alt=""
+          width={100}
+          className=" rounded-full"
+        />
         {user?.email}
       </div>
 
@@ -67,7 +72,7 @@ const AccountContent = () => {
             onClick={redirectToCustomerPortal}
             className="w-[300px] bg-violet-500"
           >
-            Open customer portal
+            Manage Subscription
           </Button>
         </div>
       )}
