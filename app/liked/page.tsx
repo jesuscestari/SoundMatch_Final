@@ -26,7 +26,7 @@ const Liked = async () => {
             className="
               flex 
               flex-col 
-              md:flex-row 
+             
               items-center 
               gap-x-5
             "
@@ -40,7 +40,6 @@ const Liked = async () => {
               />
             </div>
             <div className="flex flex-col gap-y-2 mt-4 md:mt-0">
-              <p className="hidden md:block font-semibold text-sm">Saved</p>
               <h1
                 className="
                   text-white 

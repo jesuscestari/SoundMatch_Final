@@ -6,7 +6,8 @@ import useLoadImage from "@/hooks/useLoadImage";
 import { Efecto } from "@/types";
 
 import PlayButton from "./PlayButton";
-import { AiTwotoneLike } from "react-icons/ai";
+
+import { GoBookmark, GoBookmarkFill } from "react-icons/go";
 
 interface SongItemProps {
   data: Efecto;
@@ -67,7 +68,7 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
           By {data.autor}
         </p>
         <p className="flex">
-          <AiTwotoneLike size={20} />
+          <GoBookmarkFill size={20} />
           <span className="pl-1">{data.puntos}</span>
         </p>
       </div>

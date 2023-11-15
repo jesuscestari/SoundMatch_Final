@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+
+import { GoBookmark, GoBookmarkFill } from "react-icons/go";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { useSessionContext } from "@supabase/auth-helpers-react";
@@ -44,7 +45,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
     fetchData();
   }, [songId, supabaseClient, user?.id]);
 
-  const Icon = isLiked ? AiFillHeart : AiOutlineHeart;
+  const Icon = isLiked ? GoBookmarkFill : GoBookmark;
 
   const handleLike = async () => {
     if (!user) {

@@ -3,6 +3,9 @@
 import { Efecto } from "@/types";
 import SongItem from "./SongItem";
 import useOnPlay from "@/hooks/useOnPlay";
+import { BiUser } from "react-icons/bi";
+import Box from "./Box";
+import { useUser } from "@/hooks/useUser";
 
 interface PageContentProps {
   efectos: Efecto[];
@@ -10,6 +13,7 @@ interface PageContentProps {
 
 const PageContent: React.FC<PageContentProps> = ({ efectos }) => {
   const onPlay = useOnPlay(efectos);
+  const { subscription, user } = useUser();
 
   if (efectos.length === 0) {
     return (
@@ -22,8 +26,9 @@ const PageContent: React.FC<PageContentProps> = ({ efectos }) => {
     );
   }
   return (
-    <div
-      className="
+    <>
+      <div
+        className="
         grid
         grid-cols-2
         sm:grid-cols-3
@@ -34,15 +39,16 @@ const PageContent: React.FC<PageContentProps> = ({ efectos }) => {
         gap-4
         mt-4
         "
-    >
-      {efectos.map((item) => (
-        <SongItem
-          key={item.id}
-          onClick={(id: string) => onPlay(id)}
-          data={item}
-        />
-      ))}
-    </div>
+      >
+        {efectos.map((item) => (
+          <SongItem
+            key={item.id}
+            onClick={(id: string) => onPlay(id)}
+            data={item}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 

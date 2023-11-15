@@ -1,7 +1,6 @@
 "use client";
 
-import { TbPlaylist } from "react-icons/tb";
-import { AiOutlinePlus } from "react-icons/ai";
+import { FiUpload } from "react-icons/fi";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
@@ -9,6 +8,8 @@ import { Efecto } from "@/types";
 import MediaItem from "./MediaItem";
 import useOnPlay from "@/hooks/useOnPlay";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
+
+import { RiSoundModuleFill } from "react-icons/ri";
 
 interface LibraryProps {
   songs: Efecto[];
@@ -43,12 +44,12 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
         items-center
         gap-x-2"
         >
-          <TbPlaylist className="text-neutral-400" size={26} />
+          <RiSoundModuleFill className="text-neutral-400" size={26} />
           <p className="text-neutral-400 font-medium text-md">
             My Sound Effects
           </p>
         </div>
-        <AiOutlinePlus
+        <FiUpload // Fix the icon name here
           onClick={onClick}
           size={20}
           className="text-neutral-400 cursor-pointer hover:text-white transition"

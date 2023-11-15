@@ -40,7 +40,7 @@ export default async function Home() {
           <h1 className="text-white flex text-2xl font-semibold ">
             {" "}
             <AiOutlineStock size={30} />
-            <span className="pl-2"> Recent Songs</span>
+            <span className="pl-2"> Recent SFX</span>
           </h1>
         </div>
         <div>

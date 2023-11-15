@@ -2,15 +2,17 @@
 
 import { useRouter } from "next/navigation";
 import { twMerge } from "tailwind-merge";
-
+import { IoMdCloudUpload } from "react-icons/io";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
-import { AiFillHeart } from "react-icons/ai";
+import { BiBookmarkHeart } from "react-icons/bi";
 import Button from "./Button";
 import { useUser } from "@/hooks/useUser";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { FaUserAlt } from "react-icons/fa";
+import { MdOutlineBookmark } from "react-icons/md";
+import { FaBookmark, FaUserAlt } from "react-icons/fa";
+import { GoBookmark } from "react-icons/go";
 import toast from "react-hot-toast";
 import usePlayer from "@/hooks/usePlayer";
 
@@ -52,9 +54,9 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
       )}
     >
       <div className="w-full mb-4 flex items-center justify-between">
-        <div className="hidden md:flex gap-x-2 items-center"></div>
+        <div className="hidden  gap-x-2 items-center"></div>
 
-        <div className="flex md:hidden gap-x-2 items-center ">
+        <div className="flex  gap-x-2 items-center ">
           <button
             onClick={() => router.push("/")}
             className="
@@ -68,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           transition
           "
           >
-            <HiHome className="text-black" size={20} />
+            <HiHome className="text-black" size={25} />
           </button>
           <button
             onClick={() => router.push("/liked")}
@@ -83,7 +85,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           transition
           "
           >
-            <AiFillHeart className="text-black" size={20} />
+            <MdOutlineBookmark className="text-black" size={25} />
           </button>
 
           <button
@@ -101,7 +103,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             <BiSearch
               onClick={() => router.push("/search")}
               className="text-black"
-              size={20}
+              size={25}
             />
           </button>
         </div>
