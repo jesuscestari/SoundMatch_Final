@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
 import { BsDownload } from "react-icons/bs";
 import { toast } from "react-hot-toast";
 import { useSessionContext } from "@supabase/auth-helpers-react";
+import useSubscribeModal from "@/hooks/useSubscribeModal";
+import { useUser } from "@/hooks/useUser";
 
 interface DButtonProps {
   songId: string;
@@ -11,6 +12,8 @@ interface DButtonProps {
 
 const DButton: React.FC<DButtonProps> = ({ songId }) => {
   const { supabaseClient } = useSessionContext();
+  const subscribeModal = useSubscribeModal();
+  const { subscription } = useUser();
 
   const getEfecto = async () => {
     const { data } = await supabaseClient
@@ -35,9 +38,13 @@ const DButton: React.FC<DButtonProps> = ({ songId }) => {
 
   const Icon = BsDownload;
 
-  const handleClick = async () => {
+  const handleClickDescargar = async () => {
+    if (!subscription) {
+      return subscribeModal.onOpen();
+    }
     const descargar = await handleDesc();
     window.location.assign(descargar);
+    toast.success("Download done!");
   };
 
   return (
@@ -47,7 +54,7 @@ const DButton: React.FC<DButtonProps> = ({ songId }) => {
         hover:opacity-75 
         transition
       "
-      onClick={handleClick}
+      onClick={handleClickDescargar}
     >
       <Icon color={"white"} size={25} />
     </button>
