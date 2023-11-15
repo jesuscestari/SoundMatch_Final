@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { twMerge } from "tailwind-merge";
-import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
+
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import { AiFillHeart } from "react-icons/ai";
@@ -29,11 +29,9 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
-    player.reset(); //resetea el reproductor cuando se hace logout
 
     router.refresh();
 
-    //mensaje con toast de logout
     if (error) {
       toast.error(error.message);
     } else {
@@ -122,18 +120,6 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             </div>
           ) : (
             <>
-              <div>
-                <Button
-                  onClick={authModal.onOpen}
-                  className="
-              bg-transparent
-              text-neutral-300
-              font-medium
-              "
-                >
-                  Sign up
-                </Button>
-              </div>
               <div>
                 <Button
                   onClick={authModal.onOpen}

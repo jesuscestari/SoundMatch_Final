@@ -54,6 +54,8 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
         .delete()
         .eq("user_id", user.id)
         .eq("efectos_id", songId);
+      //funcion "decremento" EN SUPABASE
+      await supabaseClient.rpc("decremento", { row_id: songId });
 
       if (error) {
         toast.error(error.message);
