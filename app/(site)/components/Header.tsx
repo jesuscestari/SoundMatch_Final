@@ -11,10 +11,9 @@ import { useUser } from "@/hooks/useUser";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { MdOutlineBookmark } from "react-icons/md";
-import { FaBookmark, FaUserAlt } from "react-icons/fa";
-import { GoBookmark } from "react-icons/go";
+import { FaUserAlt } from "react-icons/fa";
+
 import toast from "react-hot-toast";
-import usePlayer from "@/hooks/usePlayer";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -22,7 +21,6 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ children, className }) => {
-  const player = usePlayer();
   const authModal = useAuthModal();
   const router = useRouter();
 
@@ -48,7 +46,9 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
   h-fit
   bg-gradient-to-b
   from-violet-900/90
-  p-6
+  md:p-6
+  p-2
+ 
   `,
         className
       )}

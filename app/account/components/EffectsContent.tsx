@@ -7,6 +7,7 @@ import { Efecto } from "@/types";
 import MediaItem from "../../(site)/components/MediaItem";
 import useOnPlay from "@/hooks/useOnPlay";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
+import BorrarButton from "@/app/(site)/components/BorrarButton";
 
 import { MdDeleteOutline } from "react-icons/md";
 
@@ -47,7 +48,7 @@ const EffectsContent: React.FC<EffectsContentProps> = ({ songs }) => {
             key={item.id}
             data={item}
           />
-          <MdDeleteOutline size={30} />
+          <BorrarButton songId={item.id} />
         </div>
       ))}
     </div>

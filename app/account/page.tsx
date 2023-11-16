@@ -33,7 +33,7 @@ const Account = async () => {
         <Box className="overflow-y-auto  h-full bg-neutral-100/10 flex flex-col gap-y-4   md:mr-2 ">
           <AccountContent />
         </Box>
-        <Box className="overflow-y-auto  h-30 bg-neutral-100/10 flex flex-col gap-y-4  md:ml-2   items-center ">
+        <Box className="overflow-y-auto  h-30 bg-neutral-100/10 flex flex-col gap-y-4  md:ml-2 mt-3 md:mt-0    items-center ">
           <SubirContent />
         </Box>
       </div>
