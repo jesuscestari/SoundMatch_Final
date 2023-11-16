@@ -1,21 +1,20 @@
 "use client";
 
-import { FiUpload } from "react-icons/fi";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
 import { Efecto } from "@/types";
-import MediaItem from "./MediaItem";
+import MediaItem from "../../(site)/components/MediaItem";
 import useOnPlay from "@/hooks/useOnPlay";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
 
-import { RiSoundModuleFill } from "react-icons/ri";
+import { MdDeleteOutline } from "react-icons/md";
 
-interface LibraryProps {
+interface EffectsContentProps {
   songs: Efecto[];
 }
 
-const Library: React.FC<LibraryProps> = ({ songs }) => {
+const EffectsContent: React.FC<EffectsContentProps> = ({ songs }) => {
   const subscribeModal = useSubscribeModal();
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
@@ -37,35 +36,22 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="flex items-center justify-between px-5 pt-4">
-        <div
-          className="inline-flex
-        items-center
-        gap-x-2"
-        >
-          <RiSoundModuleFill className="text-neutral-400" size={26} />
-          <p className="text-neutral-400 font-medium text-md">
-            My Sound Effects
-          </p>
-        </div>
-        <FiUpload
-          onClick={onClick}
-          size={20}
-          className="text-neutral-400 cursor-pointer hover:text-white transition"
-        />
-      </div>
-      <div className="flex flex-col gap-y-2 mt-4 px-3">
-        {songs.map((item) => (
+    <div className="flex flex-col gap-y-2 w-full p-6">
+      <p className="text-white text-2xl font-semibold text-center pt-4 ">
+        Uploaded Sound Effects
+      </p>
+      {songs.map((item) => (
+        <div className="flex items-center gap-x-4 w-full">
           <MediaItem
             onClick={(id: string) => onPlay(id)}
             key={item.id}
             data={item}
           />
-        ))}
-      </div>
+          <MdDeleteOutline size={30} />
+        </div>
+      ))}
     </div>
   );
 };
 
-export default Library;
+export default EffectsContent;
