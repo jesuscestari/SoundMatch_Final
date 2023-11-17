@@ -19,9 +19,7 @@ const PageContent: React.FC<PageContentProps> = ({ efectos }) => {
     return (
       <div className="flex flex-col items-center justify-center gap-y-2">
         <p className="text-white text-lg font-semibold">No songs found</p>
-        <p className="text-neutral-400 text-sm">
-          Try searching for another song
-        </p>
+        <p className="text--400 text-sm">Try searching for another song</p>
       </div>
     );
   }

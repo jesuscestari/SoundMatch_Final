@@ -30,7 +30,7 @@ const SubirContent = () => {
       <FiUpload
         size={110}
         onClick={onClick}
-        className="text-neutral-400 cursor-pointer hover:text-white transition mt-11"
+        className="text--400 cursor-pointer hover:text-white transition mt-11"
       />
       <p className="text-white text-2xl font-semibold text-center  mb-9">
         Upload

@@ -12,7 +12,7 @@ const Liked = async () => {
   return (
     <div
       className="
-        bg-gray-900 
+        bg-neutral-900 
       
         h-full 
         w-full 

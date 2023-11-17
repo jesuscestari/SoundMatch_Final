@@ -21,7 +21,7 @@ const Modal: React.FC<ModalProps> = ({
       <Dialog.Portal>
         <Dialog.Overlay
           className="
-            bg-gray-900/90 
+            bg-neutral-900/90 
             backdrop-blur-sm 
             fixed 
             inset-0
@@ -32,6 +32,7 @@ const Modal: React.FC<ModalProps> = ({
             fixed 
             drop-shadow-md 
             border 
+            border--700 
             border-neutral-700 
             top-[50%] 
             left-[50%] 
@@ -74,7 +75,7 @@ const Modal: React.FC<ModalProps> = ({
           <Dialog.Close asChild>
             <button
               className="
-                text-neutral-400 
+                text--400 
                 hover:text-white 
                 absolute 
                 top-[10px] 

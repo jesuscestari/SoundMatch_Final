@@ -44,15 +44,13 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
         items-center
         gap-x-2"
         >
-          <RiSoundModuleFill className="text-neutral-400" size={26} />
-          <p className="text-neutral-400 font-medium text-md">
-            My Sound Effects
-          </p>
+          <RiSoundModuleFill className="text--400" size={26} />
+          <p className="text--400 font-medium text-md">My Sound Effects</p>
         </div>
         <FiUpload
           onClick={onClick}
           size={20}
-          className="text-neutral-400 cursor-pointer hover:text-white transition"
+          className="text--400 cursor-pointer hover:text-white transition"
         />
       </div>
       <div className="flex flex-col gap-y-2 mt-4 px-3">

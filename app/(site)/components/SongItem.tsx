@@ -30,9 +30,9 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
         rounded-md 
         overflow-hidden 
         gap-x-4 
-        bg-violet-300/20
+        bg-neutral-400/10
         cursor-pointer 
-        hover:bg-neutral-400/10 
+        hover:bg-400/10 
         transition 
         p-3
       "
@@ -58,7 +58,7 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
         <p className="font-semibold truncate w-full">{data.titulo}</p>
         <p
           className="
-            text-neutral-400 
+            text--400 
             text-sm 
             pb-4 
             w-full 

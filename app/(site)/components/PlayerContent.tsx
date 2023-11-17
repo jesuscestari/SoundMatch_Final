@@ -144,7 +144,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
           onClick={onPlayPrevious}
           size={30}
           className="
-              text-neutral-400 
+              text--400 
               cursor-pointer 
               hover:text-white 
               transition
@@ -170,7 +170,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
           onClick={onPlayNext}
           size={30}
           className="
-              text-neutral-400 
+              text--400 
               cursor-pointer 
               hover:text-white 
               transition

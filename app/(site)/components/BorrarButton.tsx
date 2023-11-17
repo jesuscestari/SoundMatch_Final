@@ -54,8 +54,6 @@ const BorrarButton: React.FC<BorrarButtonProps> = ({ songId }) => {
     return data?.titulo;
   };
 
-  const nombreEfecto = getEfectoNombre();
-
   const BorrarEfecto = async () => {
     const idSFX = await getEfectoID();
 

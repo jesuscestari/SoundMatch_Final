@@ -13,7 +13,7 @@ const Account = async () => {
   return (
     <div
       className="
-        bg-gray-900 
+        bg-neutral-900
         h-full 
         w-full 
        pl-7
@@ -22,7 +22,7 @@ const Account = async () => {
         overflow-y-auto
       "
     >
-      <Header className="from-bg-gray-900">
+      <Header className="from-bg-neutral-900">
         <div className="mb-2 flex flex-col gap-y-6">
           <h1 className="text-white text-3xl font-semibold text-center">
             Account Settings

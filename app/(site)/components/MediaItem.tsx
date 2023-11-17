@@ -29,14 +29,14 @@ const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
     <div
       onClick={handleClick}
       className="
-        flex 
-        items-center 
-        gap-x-3 
-        cursor-pointer 
-        hover:bg-neutral-800/50 
-        w-full 
-        p-2 
-        rounded-md
+      flex 
+      items-center 
+      gap-x-3 
+      cursor-pointer 
+      hover:bg-neutral-800/50 
+      w-full 
+      p-2 
+      rounded-md
       "
     >
       <div
@@ -57,8 +57,8 @@ const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
       </div>
       <div className="flex flex-col gap-y-1 overflow-hidden">
         <p className="text-white truncate">{data.titulo}</p>
-        <p className="text-neutral-400 text-sm truncate">By {data.autor}</p>
-        <div className="pt-1  flex text-neutral-400 text-sm truncate">
+        <p className="text--400 text-sm truncate">By {data.autor}</p>
+        <div className="pt-1  flex text--400 text-sm truncate">
           <GoBookmarkFill size={20} />
           <span className="pl-1">{data.puntos}</span>
         </div>

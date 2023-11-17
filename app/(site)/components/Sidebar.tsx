@@ -8,6 +8,8 @@ import { Efecto } from "@/types";
 import usePlayer from "@/hooks/usePlayer";
 import { twMerge } from "tailwind-merge";
 import { useUser } from "@/hooks/useUser";
+import img from "@/public/images/logo.png";
+import Image from "next/image";
 
 interface SidebarProps {
   children: React.ReactNode;
@@ -40,11 +42,14 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
     p-2
     "
       >
+        <Box className=" h-62">
+          <Image src={img} width={500} height={500} alt="" />
+        </Box>
         <Box className="overflow-y-auto h-full">
           <Library songs={songs} />
         </Box>
 
-        <Box className="overflow-y-auto h-32 ">
+        <Box className="h-44">
           <div
             className="inline-flex
         items-center
@@ -52,9 +57,9 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
         pt-2"
           >
             {" "}
-            <div className="flex items-center justify-between px-5  pt-4">
-              <BiUser className="text-neutral-400" size={26} />
-              <p className="text-neutral-200 font-medium text-md pl-2">
+            <div className="flex items-center justify-between px-5  pt-4 ">
+              <BiUser className="text--400" size={26} />
+              <p className="text--200 font-medium text-md pl-2">
                 {user?.email}
               </p>
             </div>
