@@ -48,7 +48,7 @@ const AccountContent = () => {
         />
       </div>
       <div>
-        <p className="">{user?.email}</p>
+        <p>{user?.email}</p>
       </div>
 
       {!subscription && (
