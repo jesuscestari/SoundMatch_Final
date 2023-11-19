@@ -5,6 +5,7 @@ import { Efecto } from "@/types";
 import MediaItem from "@/app/(site)/components/MediaItem";
 import LikeButton from "@/app/(site)/components/LikeButton";
 import useOnPlay from "@/hooks/useOnPlay";
+import InfoButton from "@/app/(site)/components/InfoButton";
 
 interface SearchContentProps {
   songs: Efecto[];
@@ -37,6 +38,8 @@ const SearchContent: React.FC<SearchContentProps> = ({ songs }) => {
           <div className="flex-1">
             <MediaItem onClick={(id: string) => onPlay(id)} data={song} />
           </div>
+
+          <InfoButton songId={song.id} />
           <LikeButton songId={song.id} />
         </div>
       ))}

@@ -9,6 +9,7 @@ import MediaItem from "@/app/(site)/components/MediaItem";
 import LikeButton from "@/app/(site)/components/LikeButton";
 import useOnPlay from "@/hooks/useOnPlay";
 import DButton from "@/app/(site)/components/DButton";
+import InfoButton from "@/app/(site)/components/InfoButton";
 
 interface LikedContentProps {
   songs: Efecto[];
@@ -48,7 +49,7 @@ const LikedContent: React.FC<LikedContentProps> = ({ songs }) => {
           <div className="flex-1">
             <MediaItem onClick={(id: string) => onPlay(id)} data={song} />
           </div>
-
+          <InfoButton songId={song.id} />
           <LikeButton songId={song.id} />
           <DButton songId={song.id} />
         </div>

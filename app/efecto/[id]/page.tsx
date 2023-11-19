@@ -1,4 +1,5 @@
 import EfectoContent from "./components/EfectoContent";
+import { Efecto } from "@/types";
 
 interface pageProps {
   params: { id: string };
