@@ -3,9 +3,6 @@
 import { Efecto } from "@/types";
 import SongItem from "./SongItem";
 import useOnPlay from "@/hooks/useOnPlay";
-import { BiUser } from "react-icons/bi";
-import Box from "./Box";
-import { useUser } from "@/hooks/useUser";
 
 interface PageContentProps {
   efectos: Efecto[];
@@ -13,13 +10,12 @@ interface PageContentProps {
 
 const PageContent: React.FC<PageContentProps> = ({ efectos }) => {
   const onPlay = useOnPlay(efectos);
-  const { subscription, user } = useUser();
 
   if (efectos.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center gap-y-2">
-        <p className="text-white text-lg font-semibold">No songs found</p>
-        <p className="text--400 text-sm">Try searching for another song</p>
+        <p className="text-white text-lg font-semibold">No Effects found</p>
+        <p className="text--400 text-sm">Try searching for another Effect</p>
       </div>
     );
   }

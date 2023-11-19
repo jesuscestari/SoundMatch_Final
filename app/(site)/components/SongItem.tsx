@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 import useLoadImage from "@/hooks/useLoadImage";
 import { Efecto } from "@/types";
 
 import PlayButton from "./PlayButton";
 
-import { GoBookmark, GoBookmarkFill } from "react-icons/go";
+import { GoBookmarkFill } from "react-icons/go";
 
 interface SongItemProps {
   data: Efecto;
@@ -16,10 +16,10 @@ interface SongItemProps {
 
 const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
   const imagePath = useLoadImage(data);
+  const router = useRouter();
 
   return (
     <div
-      onClick={() => onClick(data.id)}
       className="
         relative 
         group 
@@ -48,13 +48,17 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
         "
       >
         <Image
+          onClick={() => router.push("/efecto/" + data.id)}
           className="object-cover"
           src={imagePath || "/images/liked.png"}
           fill
           alt="Image"
         />
       </div>
-      <div className="flex flex-col items-start w-full pt-4 gap-y-1">
+      <div
+        onClick={() => router.push("/efecto/" + data.id)}
+        className="flex flex-col items-start w-full pt-4 gap-y-1"
+      >
         <p className="font-semibold truncate w-full">{data.titulo}</p>
         <p
           className="
@@ -73,6 +77,7 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
         </p>
       </div>
       <div
+        onClick={() => onClick(data.id)}
         className="
           absolute 
           bottom-24 

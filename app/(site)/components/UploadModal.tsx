@@ -106,6 +106,10 @@ const UploadModal = () => {
     }
   };
 
+  const autor = user?.email;
+
+  const autorRecorte = autor?.split("@")[0];
+
   return (
     <Modal
       title="Add a Sound Effect"
@@ -122,9 +126,9 @@ const UploadModal = () => {
         />
         <Input
           id="author"
-          disabled={isLoading}
+          disabled
           {...register("author", { required: true })}
-          placeholder="SFX author"
+          placeholder={autorRecorte}
         />
         <div>
           <div className="pb-1">Select a SFX file</div>

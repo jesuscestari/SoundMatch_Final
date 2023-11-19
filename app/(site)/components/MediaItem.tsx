@@ -6,7 +6,7 @@ import useLoadImage from "@/hooks/useLoadImage";
 import { Efecto } from "@/types";
 import usePlayer from "@/hooks/usePlayer";
 
-import { GoBookmark, GoBookmarkFill } from "react-icons/go";
+import { GoBookmarkFill } from "react-icons/go";
 
 interface MediaItemProps {
   data: Efecto;

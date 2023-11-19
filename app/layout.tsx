@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Figtree } from "next/font/google";
+import { Figtree, Roboto } from "next/font/google";
 import Sidebar from "./(site)/components/Sidebar";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
@@ -9,8 +9,12 @@ import ToasterProvider from "@/providers/ToasterProvider";
 import getSongsByUserId from "@/actions/getSongsByUserId";
 import Player from "./(site)/components/Player";
 import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
+import getSongs from "@/actions/getSongs";
 
-const font = Figtree({ subsets: ["latin"] });
+const font = Roboto({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export const metadata = {
   title: "SoundMatch",
@@ -26,6 +30,7 @@ export default async function RootLayout({
 }) {
   const userSongs = await getSongsByUserId();
   const products = await getActiveProductsWithPrices();
+  const data = await getSongs();
 
   return (
     <html lang="en">
