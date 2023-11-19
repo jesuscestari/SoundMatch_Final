@@ -8,13 +8,13 @@ import useOnPlay from "@/hooks/useOnPlay";
 import InfoButton from "@/app/(site)/components/InfoButton";
 
 interface SearchContentProps {
-  songs: Efecto[];
+  efects: Efecto[];
 }
 
-const SearchContent: React.FC<SearchContentProps> = ({ songs }) => {
-  const onPlay = useOnPlay(songs);
+const SearchContent: React.FC<SearchContentProps> = ({ efects }) => {
+  const onPlay = useOnPlay(efects);
 
-  if (songs.length === 0) {
+  if (efects.length === 0) {
     return (
       <div
         className="
@@ -26,14 +26,14 @@ const SearchContent: React.FC<SearchContentProps> = ({ songs }) => {
           text--400
         "
       >
-        No songs found.
+        No SFX found.
       </div>
     );
   }
 
   return (
     <div className="flex flex-col gap-y-2 w-full px-6">
-      {songs.map((song: Efecto) => (
+      {efects.map((song: Efecto) => (
         <div key={song.id} className="flex items-center gap-x-4 w-full">
           <div className="flex-1">
             <MediaItem onClick={(id: string) => onPlay(id)} data={song} />
