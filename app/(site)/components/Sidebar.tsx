@@ -20,6 +20,8 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
   const player = usePlayer();
   const { subscription, user } = useUser();
 
+  const nombreUser = user?.email?.split("@")[0];
+
   return (
     <div
       className={twMerge(
@@ -50,20 +52,11 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
         </Box>
 
         <Box className="h-44">
-          <div
-            className="inline-flex
-        items-center
-        gap-x-2
-        pt-2"
-          >
-            {" "}
-            <div className="flex items-center justify-between px-5  pt-4 ">
-              <BiUser className="text--400" size={26} />
-              <p className="text--200 font-medium text-md pl-2">
-                {user?.email}
-              </p>
-            </div>
+          <div className="flex items-center justify-center mt-5">
+            <BiUser className="" size={26} />
+            <p className=" text--200 font-medium text-md ">{nombreUser}</p>
           </div>
+
           <div className=" px-6 ">
             {!subscription && (
               <div className="flex flex-col gap-y-4">

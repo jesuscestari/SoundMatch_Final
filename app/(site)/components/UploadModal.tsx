@@ -85,7 +85,7 @@ const UploadModal = () => {
         .insert({
           user_id: user.id,
           titulo: values.title,
-          autor: values.author,
+          autor: autor,
           imagen_path: imageData.path,
           efecto_path: songData.path,
         });
@@ -108,8 +108,6 @@ const UploadModal = () => {
 
   const autor = user?.email;
 
-  const autorRecorte = autor?.split("@")[0];
-
   return (
     <Modal
       title="Add a Sound Effect"
@@ -124,12 +122,7 @@ const UploadModal = () => {
           {...register("title", { required: true })}
           placeholder="SFX title"
         />
-        <Input
-          id="author"
-          disabled
-          {...register("author", { required: true })}
-          placeholder={autorRecorte}
-        />
+
         <div>
           <div className="pb-1">Select a SFX file</div>
           <Input

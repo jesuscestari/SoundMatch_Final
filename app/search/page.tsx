@@ -1,4 +1,4 @@
-import getSongsByTitle from "@/actions/getSongsByTitle";
+import getSongsByTitle from "@/actions/getEfectosByTitle";
 import SearchInput from "../(site)/components/SearchInput";
 
 import SearchContent from "./components/SearchContent";
@@ -38,7 +38,7 @@ const Search = async ({ searchParams }: SearchProps) => {
         Suggestions
       </h3>
 
-      <SearchContent songs={songs} />
+      <SearchContent efects={songs} />
     </div>
   );
 };

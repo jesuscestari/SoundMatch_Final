@@ -25,6 +25,8 @@ const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
     return player.setId(data.id);
   };
 
+  const autor = data.autor.split("@")[0];
+
   return (
     <div
       onClick={handleClick}
@@ -57,7 +59,7 @@ const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
       </div>
       <div className="flex flex-col gap-y-1 overflow-hidden">
         <p className="text-white truncate">{data.titulo}</p>
-        <p className="text--400 text-sm truncate">By {data.autor}</p>
+        <p className="text--400 text-sm truncate">By {autor}</p>
         <div className="pt-1  flex text--400 text-sm truncate">
           <GoBookmarkFill size={20} />
           <span className="pl-1">{data.puntos}</span>

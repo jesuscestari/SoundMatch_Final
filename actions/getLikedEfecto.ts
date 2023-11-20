@@ -2,7 +2,7 @@ import { Efecto } from "@/types";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-const getLikedSongs = async (): Promise<Efecto[]> => {
+const getLikedEfecto = async (): Promise<Efecto[]> => {
   const supabase = createServerComponentClient({
     cookies: cookies,
   });
@@ -24,4 +24,4 @@ const getLikedSongs = async (): Promise<Efecto[]> => {
   }));
 };
 
-export default getLikedSongs;
+export default getLikedEfecto;

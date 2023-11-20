@@ -1,4 +1,4 @@
-import getSongs from "@/actions/getSongs";
+import getSongs from "@/actions/getEfectos";
 import Header from "./components/Header";
 import { AiOutlineStock } from "react-icons/ai";
 import PageContent from "./components/PageContent";

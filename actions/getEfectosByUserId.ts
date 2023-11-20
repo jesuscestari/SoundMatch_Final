@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 import { Efecto } from "@/types";
 
-const getSongsByUserId = async (): Promise<Efecto[]> => {
+const getEfectosByUserId = async (): Promise<Efecto[]> => {
   const supabase = createServerComponentClient({
     cookies: cookies,
   });
@@ -29,4 +29,4 @@ const getSongsByUserId = async (): Promise<Efecto[]> => {
   return (data as any) || [];
 };
 
-export default getSongsByUserId;
+export default getEfectosByUserId;

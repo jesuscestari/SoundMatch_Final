@@ -6,10 +6,10 @@ import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
 
 import ToasterProvider from "@/providers/ToasterProvider";
-import getSongsByUserId from "@/actions/getSongsByUserId";
+import getSongsByUserId from "@/actions/getEfectosByUserId";
 import Player from "./(site)/components/Player";
 import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
-import getSongs from "@/actions/getSongs";
+import getSongs from "@/actions/getEfectos";
 
 const font = Roboto({
   subsets: ["latin"],

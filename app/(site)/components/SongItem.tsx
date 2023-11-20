@@ -18,6 +18,8 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
   const imagePath = useLoadImage(data);
   const router = useRouter();
 
+  const autor = data.autor.split("@")[0];
+
   return (
     <div
       className="
@@ -69,7 +71,7 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
             truncate
           "
         >
-          By {data.autor}
+          By {autor}
         </p>
         <p className="flex">
           <GoBookmarkFill size={20} />

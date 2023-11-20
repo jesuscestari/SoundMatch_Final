@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import getLikedSongs from "@/actions/getLikedSongs";
+import getLikedSongs from "@/actions/getLikedEfecto";
 import Header from "../(site)/components/Header";
 import LikedContent from "./components/LikedContent";
 

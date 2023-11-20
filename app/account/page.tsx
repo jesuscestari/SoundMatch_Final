@@ -3,7 +3,7 @@ import Header from "../(site)/components/Header";
 import AccountContent from "./components/AccountContent";
 import EffectsContent from "./components/EffectsContent";
 
-import getSongsByUserId from "@/actions/getSongsByUserId";
+import getSongsByUserId from "@/actions/getEfectosByUserId";
 
 import SubirContent from "./components/SubirContent";
 

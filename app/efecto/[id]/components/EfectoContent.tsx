@@ -68,8 +68,10 @@ const EfectoContent: React.FC<EfectoContentProps> = async ({ songId }) => {
     if (!subscription) {
       return subscribeModal.onOpen();
     }
-    window.location.href = `mailto:${autor}@gmail.com`;
+    window.location.href = `mailto:${autor}`;
   }
+
+  const autorNombre = autor?.split("@")[0];
 
   return (
     <>
@@ -97,7 +99,7 @@ const EfectoContent: React.FC<EfectoContentProps> = async ({ songId }) => {
             </h5>
 
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              By {autor}
+              By {autorNombre}
             </p>
             <a
               onClick={mandarMail}
