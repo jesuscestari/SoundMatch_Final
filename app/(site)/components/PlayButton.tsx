@@ -5,19 +5,21 @@ const PlayButton = () => {
     <button
       className="
         transition 
-        opacity-0 
+        
         rounded-full 
         flex 
         items-center 
         justify-center 
-        bg-orange-700
+        bg-orange-700/80
         p-4 
+      
         drop-shadow-md 
         translate
         translate-y-1/4
         group-hover:opacity-100 
         group-hover:translate-y-0
         hover:scale-110
+        mb-4
       "
     >
       <FaPlay className="text-white" />

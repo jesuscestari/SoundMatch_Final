@@ -9,12 +9,12 @@ import PlayButton from "./PlayButton";
 
 import { GoBookmarkFill } from "react-icons/go";
 
-interface SongItemProps {
+interface EfectoItemProps {
   data: Efecto;
   onClick: (id: string) => void;
 }
 
-const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
+const EfectoItem: React.FC<EfectoItemProps> = ({ data, onClick }) => {
   const imagePath = useLoadImage(data);
   const player = usePlayer();
   const router = useRouter();
@@ -39,20 +39,23 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
         group
       flex 
       items-center 
-      gap-x-3 
+      gap-x-4
       cursor-pointer 
       hover:bg-neutral-800/50 
       w-full 
-      p-2 
+      md:p-2 
       rounded-md
       "
       >
+        <PlayButton />
+
         <div
           className="
         relative 
         rounded-md 
-        min-h-[48px] 
-        min-w-[48px] 
+        min-h-[58px] 
+        min-w-[58px] 
+       
         overflow-hidden
         "
         >
@@ -71,20 +74,10 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
             <GoBookmarkFill size={20} />
             <span className="pl-1">{data.puntos}</span>
           </div>
-          <div
-            onClick={handleClick}
-            className="
-          absolute 
-        top-5
-          right-5
-        "
-          >
-            <PlayButton />
-          </div>
         </div>
       </div>
     </>
   );
 };
 
-export default SongItem;
+export default EfectoItem;

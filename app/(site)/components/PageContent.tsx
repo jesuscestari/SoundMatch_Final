@@ -1,7 +1,7 @@
 "use client";
 
 import { Efecto } from "@/types";
-import SongItem from "./SongItem";
+import EfectoItem from "./EfectoItem";
 import useOnPlay from "@/hooks/useOnPlay";
 import InfoButton from "./InfoButton";
 import LikeButton from "./LikeButton";
@@ -25,9 +25,9 @@ const PageContent: React.FC<PageContentProps> = ({ efectos }) => {
     <>
       <div className="flex flex-col ">
         {efectos.map((song: any) => (
-          <div key={song.id} className="flex items-center gap-x-4 w-full">
+          <div key={song.id} className="flex items-center gap-x-4 w-full ">
             <div className="flex-1 pt-9">
-              <SongItem onClick={(id: string) => onPlay(id)} data={song} />
+              <EfectoItem onClick={(id: string) => onPlay(id)} data={song} />
             </div>
             <InfoButton songId={song.id} />
             <LikeButton songId={song.id} />

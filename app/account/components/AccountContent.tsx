@@ -8,7 +8,6 @@ import { FaUserAlt } from "react-icons/fa";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
 import { postData } from "@/libs/helpers";
 import Button from "@/app/(site)/components/Button";
-import { BsStripe } from "react-icons/bs";
 
 export const revalidate = 0;
 

@@ -5,11 +5,12 @@ import { useRouter } from "next/navigation";
 
 import { Efecto } from "@/types";
 import { useUser } from "@/hooks/useUser";
-import MediaItem from "@/app/(site)/components/MediaItem";
+
 import LikeButton from "@/app/(site)/components/LikeButton";
 import useOnPlay from "@/hooks/useOnPlay";
 import DButton from "@/app/(site)/components/DButton";
 import InfoButton from "@/app/(site)/components/InfoButton";
+import MediaItemAutor from "@/app/(site)/components/MediaItemAutor";
 
 interface LikedContentProps {
   songs: Efecto[];
@@ -47,7 +48,7 @@ const LikedContent: React.FC<LikedContentProps> = ({ songs }) => {
       {songs.map((song: any) => (
         <div key={song.id} className="flex items-center gap-x-4 w-full">
           <div className="flex-1">
-            <MediaItem onClick={(id: string) => onPlay(id)} data={song} />
+            <MediaItemAutor onClick={(id: string) => onPlay(id)} data={song} />
           </div>
           <InfoButton songId={song.id} />
           <LikeButton songId={song.id} />
