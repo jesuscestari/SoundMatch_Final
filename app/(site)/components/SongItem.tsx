@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import useLoadImage from "@/hooks/useLoadImage";
 import { Efecto } from "@/types";
-
+import usePlayer from "@/hooks/usePlayer";
 import PlayButton from "./PlayButton";
 
 import { GoBookmarkFill } from "react-icons/go";
@@ -16,79 +16,74 @@ interface SongItemProps {
 
 const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
   const imagePath = useLoadImage(data);
+  const player = usePlayer();
   const router = useRouter();
 
   const autor = data.autor.split("@")[0];
 
+  const handleClick = () => {
+    if (onClick) {
+      return onClick(data.id);
+    }
+
+    return player.setId(data.id);
+  };
+
   return (
-    <div
-      className="
+    <>
+      <div
+        onClick={handleClick}
+        className="
         relative 
-        group 
-        flex 
-        flex-col 
-        items-center 
-        justify-center 
-        rounded-md 
-        overflow-hidden 
-        gap-x-4 
-        bg-neutral-400/10
-        cursor-pointer 
-        hover:bg-400/10 
-        transition 
-        p-3
+        transition
+        group
+      flex 
+      items-center 
+      gap-x-3 
+      cursor-pointer 
+      hover:bg-neutral-800/50 
+      w-full 
+      p-2 
+      rounded-md
       "
-    >
-      <div
-        className="
-          relative 
-          aspect-square 
-          w-full
-          h-full 
-          rounded-md 
-          overflow-hidden
-        "
       >
-        <Image
-          onClick={() => router.push("/efecto/" + data.id)}
-          className="object-cover"
-          src={imagePath || "/images/liked.png"}
-          fill
-          alt="Image"
-        />
-      </div>
-      <div
-        onClick={() => router.push("/efecto/" + data.id)}
-        className="flex flex-col items-start w-full pt-4 gap-y-1"
-      >
-        <p className="font-semibold truncate w-full">{data.titulo}</p>
-        <p
+        <div
           className="
-            text--400 
-            text-sm 
-            pb-4 
-            w-full 
-            truncate
-          "
+        relative 
+        rounded-md 
+        min-h-[48px] 
+        min-w-[48px] 
+        overflow-hidden
+        "
         >
-          By {autor}
-        </p>
-        <p className="flex">
-          <GoBookmarkFill size={20} />
-          <span className="pl-1">{data.puntos}</span>
-        </p>
-      </div>
-      <div
-        onClick={() => onClick(data.id)}
-        className="
+          <Image
+            onClick={() => router.push("/efecto/" + data.id)}
+            className="object-cover"
+            src={imagePath || "/images/liked.png"}
+            fill
+            alt="Image"
+          />
+        </div>
+        <div className="flex flex-col gap-y-1 overflow-hidden">
+          <p className="text-white truncate">{data.titulo}</p>
+          <p className="text--400 text-sm truncate">By {autor}</p>
+          <div className="pt-1  flex text--400 text-sm truncate">
+            <GoBookmarkFill size={20} />
+            <span className="pl-1">{data.puntos}</span>
+          </div>
+          <div
+            onClick={handleClick}
+            className="
           absolute 
-          bottom-24 
+        top-5
           right-5
         "
-      >
-        <PlayButton />
+          >
+            <PlayButton />
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

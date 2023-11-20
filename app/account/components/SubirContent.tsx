@@ -45,22 +45,22 @@ const SubirContent = () => {
     <>
       <div className="pt-14 flex flex-row ">
         <div className="px-10">
+          <GoBookmark
+            size={90}
+            className="text--400  hover:text-white transition "
+          />
+          <p className="text-white text-2xl font-semibold  text-center  mb-9">
+            {puntosTotales}
+          </p>
+        </div>
+        <div className="px-10">
           <FiUpload
-            size={110}
+            size={90}
             onClick={onClick}
             className="text--400 cursor-pointer hover:text-white transition "
           />
           <p className="text-white text-2xl font-semibold text-center   mb-9">
             Upload
-          </p>
-        </div>
-        <div className="px-10">
-          <GoBookmark
-            size={110}
-            className="text--400 cursor-pointer hover:text-white transition "
-          />
-          <p className="text-white text-2xl font-semibold  text-center  mb-9">
-            {puntosTotales}
           </p>
         </div>
       </div>

@@ -5,11 +5,11 @@ import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
 import { Efecto } from "@/types";
-import MediaItem from "./MediaItem";
 import useOnPlay from "@/hooks/useOnPlay";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
 
 import { RiSoundModuleFill } from "react-icons/ri";
+import MediaItemSideBar from "./MediaItemSideBar";
 
 interface LibraryProps {
   songs: Efecto[];
@@ -53,9 +53,9 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
           className="text--400 cursor-pointer hover:text-white transition"
         />
       </div>
-      <div className="flex flex-col gap-y-2 mt-4 px-3">
+      <div className="flex flex-col gap-y-2 mt-4 px-3 ">
         {songs.map((item) => (
-          <MediaItem
+          <MediaItemSideBar
             onClick={(id: string) => onPlay(id)}
             key={item.id}
             data={item}

@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { useUser } from "@/hooks/useUser";
-
+import { FaUserAlt } from "react-icons/fa";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
 import { postData } from "@/libs/helpers";
 import Button from "@/app/(site)/components/Button";
+import { BsStripe } from "react-icons/bs";
 
 export const revalidate = 0;
 
@@ -38,21 +39,16 @@ const AccountContent = () => {
   };
 
   return (
-    <div className="mb-7 px-6 text-center object-center mt-4">
-      <div className="flex justify-center items-center">
-        <img
-          src={"https://cdn-icons-png.flaticon.com/512/6681/6681204.png"}
-          alt=""
-          width={100}
-          className=" rounded-full  "
-        />
+    <div className="mb-4 px-6 text-center object-center pt-4">
+      <div className="flex justify-center items-center ">
+        <FaUserAlt className="mb-2" size={80} />
       </div>
       <div>
         <p>{user?.email}</p>
       </div>
 
       {!subscription && (
-        <div className="flex flex-col gap-y-4 text-center object-center items-center">
+        <div className="flex flex-col  text-center object-center items-center">
           <p>No active plan.</p>
           <Button
             onClick={subscribeModal.onOpen}
@@ -63,7 +59,7 @@ const AccountContent = () => {
         </div>
       )}
       {subscription && (
-        <div className=" gap-y-4 flex flex-col text-center object-center items-center">
+        <div className=" flex flex-col text-center object-center items-center">
           <p className="pb-4">
             <b> {subscription?.prices?.products?.name} </b>
             plan.
@@ -71,7 +67,7 @@ const AccountContent = () => {
           <Button
             disabled={loading || isLoading}
             onClick={redirectToCustomerPortal}
-            className="w-[300px] bg-orange-500  text-center object-center"
+            className="w-[300px] bg-amber-700/30  text-center object-center text-slate-50 "
           >
             Manage Subscription
           </Button>

@@ -3,6 +3,8 @@
 import { Efecto } from "@/types";
 import SongItem from "./SongItem";
 import useOnPlay from "@/hooks/useOnPlay";
+import InfoButton from "./InfoButton";
+import LikeButton from "./LikeButton";
 
 interface PageContentProps {
   efectos: Efecto[];
@@ -21,25 +23,15 @@ const PageContent: React.FC<PageContentProps> = ({ efectos }) => {
   }
   return (
     <>
-      <div
-        className="
-        grid
-        grid-cols-2
-        sm:grid-cols-3
-        md:grid-cols-3
-        lg:grid-cols-4
-        xl:grid-cols-5
-        2xl:grid-cols-8
-        gap-4
-        mt-4
-        "
-      >
-        {efectos.map((item) => (
-          <SongItem
-            key={item.id}
-            onClick={(id: string) => onPlay(id)}
-            data={item}
-          />
+      <div className="flex flex-col ">
+        {efectos.map((song: any) => (
+          <div key={song.id} className="flex items-center gap-x-4 w-full">
+            <div className="flex-1 pt-9">
+              <SongItem onClick={(id: string) => onPlay(id)} data={song} />
+            </div>
+            <InfoButton songId={song.id} />
+            <LikeButton songId={song.id} />
+          </div>
         ))}
       </div>
     </>

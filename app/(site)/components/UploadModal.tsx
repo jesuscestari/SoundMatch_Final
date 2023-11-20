@@ -124,7 +124,7 @@ const UploadModal = () => {
         />
 
         <div>
-          <div className="pb-1">Select a SFX file</div>
+          <div className="pb-1">Choose an SFX file (Max 15 MB).</div>
           <Input
             placeholder="test"
             disabled={isLoading}

@@ -30,15 +30,15 @@ const Account = async () => {
         </div>
       </Header>
       <div className="md:flex">
-        <Box className="overflow-y-auto  h-full bg-neutral-100/10 flex flex-col gap-y-4   md:mr-2 ">
+        <Box className="overflow-y-auto  h-full bg-neutral-100/10 flex flex-col gap-y-4   md:mr-2 rounded-md ">
           <AccountContent />
         </Box>
-        <Box className="  h-30 bg-neutral-100/10 flex flex-col gap-y-4  md:ml-2 mt-3 md:mt-0   items-center">
+        <Box className="  h-30 bg-neutral-100/10 flex flex-col gap-y-4  md:ml-2 mt-3 md:mt-0 rounded-md  items-center">
           <SubirContent />
         </Box>
       </div>
 
-      <Box className="overflow-y-auto  bg-neutral-100/10 mt-3 ">
+      <Box className="overflow-y-auto  bg-neutral-100/10 mt-3 rounded-md">
         <EffectsContent songs={userSongs} />
       </Box>
     </div>

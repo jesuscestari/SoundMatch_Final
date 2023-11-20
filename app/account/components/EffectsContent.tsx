@@ -4,12 +4,13 @@ import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
 import { Efecto } from "@/types";
-import MediaItem from "../../(site)/components/MediaItem";
+
 import useOnPlay from "@/hooks/useOnPlay";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
 import BorrarButton from "@/app/(site)/components/BorrarButton";
 
 import { MdDeleteOutline } from "react-icons/md";
+import MediaItemSideBar from "@/app/(site)/components/MediaItemSideBar";
 
 interface EffectsContentProps {
   songs: Efecto[];
@@ -43,7 +44,7 @@ const EffectsContent: React.FC<EffectsContentProps> = ({ songs }) => {
       </p>
       {songs.map((item) => (
         <div className="flex items-center gap-x-4 w-full">
-          <MediaItem
+          <MediaItemSideBar
             onClick={(id: string) => onPlay(id)}
             key={item.id}
             data={item}
