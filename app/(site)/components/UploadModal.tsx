@@ -62,7 +62,7 @@ const UploadModal = () => {
 
       if (songError) {
         setIsLoading(false);
-        return toast.error("Failed song upload");
+        return toast.error("Failed sfx upload");
       }
 
       // Upload imagen
@@ -96,7 +96,7 @@ const UploadModal = () => {
 
       router.refresh();
       setIsLoading(false);
-      toast.success("Song created!");
+      toast.success("SFX created!");
       reset();
       uploadModal.onClose();
     } catch (error) {

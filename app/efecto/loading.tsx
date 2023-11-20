@@ -6,7 +6,7 @@ import Box from "../(site)/components/Box";
 const Loading = () => {
   return (
     <Box className="h-full flex items-center justify-center">
-      <BounceLoader color="#4c1d95 " size={40} />
+      <BounceLoader color="#9F380E " size={40} />
     </Box>
   );
 };
