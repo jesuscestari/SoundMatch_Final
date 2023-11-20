@@ -5,12 +5,18 @@ import useUploadModal from "@/hooks/useUploadModal";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
+import { GoBookmark } from "react-icons/go";
+import {
+  useSessionContext,
+  useSupabaseClient,
+} from "@supabase/auth-helpers-react";
 
 const SubirContent = () => {
   const uploadModal = useUploadModal();
   const subscribeModal = useSubscribeModal();
   const authModal = useAuthModal();
   const { user, subscription } = useUser();
+  const supabaseClient = useSupabaseClient();
 
   const onClick = () => {
     if (!user) {
@@ -24,18 +30,41 @@ const SubirContent = () => {
 
     return uploadModal.onOpen();
   };
+  const userEmail = user?.email;
+
+  const fetchData = async () => {
+    const { data } = await supabaseClient.rpc("sumPuntos", {
+      author: userEmail,
+    });
+    return data;
+  };
+
+  const puntosTotales = fetchData();
 
   return (
-    <div>
-      <FiUpload
-        size={110}
-        onClick={onClick}
-        className="text--400 cursor-pointer hover:text-white transition mt-11"
-      />
-      <p className="text-white text-2xl font-semibold text-center  mb-9">
-        Upload
-      </p>
-    </div>
+    <>
+      <div className="pt-14 flex flex-row ">
+        <div className="px-10">
+          <FiUpload
+            size={110}
+            onClick={onClick}
+            className="text--400 cursor-pointer hover:text-white transition "
+          />
+          <p className="text-white text-2xl font-semibold text-center   mb-9">
+            Upload
+          </p>
+        </div>
+        <div className="px-10">
+          <GoBookmark
+            size={110}
+            className="text--400 cursor-pointer hover:text-white transition "
+          />
+          <p className="text-white text-2xl font-semibold  text-center  mb-9">
+            {puntosTotales}
+          </p>
+        </div>
+      </div>
+    </>
   );
 };
 
