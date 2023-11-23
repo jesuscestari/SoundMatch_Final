@@ -1,5 +1,6 @@
 import getSongs from "@/actions/getEfectos";
 import Header from "./components/Header";
+import MobileFooter from "./components/MobileFooter";
 import { AiOutlineStock } from "react-icons/ai";
 import PageContent from "./components/PageContent";
 
@@ -18,13 +19,14 @@ export default async function Home() {
     overflow-y-auto"
     >
       <Header>
-        <div className="mb-2">
+        <div className="mb-2 ">
           <h1
             className="
           text-white
           text-3xl
           font-semibold
           text-center
+          mt-9
           "
           >
             SoundMatch
@@ -56,6 +58,9 @@ export default async function Home() {
           </div>
         </div>
       </div>
+      <MobileFooter>
+        <div></div>
+      </MobileFooter>
     </div>
   );
 }

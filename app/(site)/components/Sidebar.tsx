@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
         </Box>
 
         <Box className="h-44">
-          <div className="flex items-center justify-center mt-5">
+          <div className="flex items-center justify-center mt-5 mr-4">
             <BiUser className="" size={26} />
             <p className=" text--200 font-medium text-md ">{nombreUser}</p>
           </div>

@@ -11,7 +11,7 @@ const PlayButton = () => {
         items-center 
         justify-center 
         bg-orange-700/80
-        p-4 
+        p-3
       
         drop-shadow-md 
         translate

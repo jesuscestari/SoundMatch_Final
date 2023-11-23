@@ -15,12 +15,12 @@ import { FaUserAlt } from "react-icons/fa";
 
 import toast from "react-hot-toast";
 
-interface HeaderProps {
+interface MobileFooterProps {
   children: React.ReactNode;
   className?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ children, className }) => {
+const MobileFooter: React.FC<MobileFooterProps> = ({ children, className }) => {
   const authModal = useAuthModal();
   const router = useRouter();
 
@@ -43,75 +43,83 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
     <div
       className={twMerge(
         `
-        hidden
-        md:block
+        block
+        md:hidden
+        fixed
+        bottom-0
         w-full
-        bg-gradient-to-b
-        from-orange-900/90
-        md:p-6
-        p-2
- 
-  `,
+       
+        bg-orange-900/50
+        p-5
+        `,
         className
       )}
     >
-      <div className="w-full mb-4 flex items-center justify-between">
+      <div className="w-full  flex items-center justify-between">
         <div className="hidden  gap-x-2 items-center"></div>
 
-        <div className="flex  gap-x-2 items-center ">
+        <div className="flex-col gap-x-2 items-center ">
           <button
             onClick={() => router.push("/")}
             className="
           rounded-full
-          p-2
-          bg-white
+          p-1
+          bg-transparent
           flex
           items-center
           justify-center
           hover:opacity-75
           transition
+          
           "
           >
-            <HiHome className="text-black" size={25} />
+            <HiHome className="text-white" size={35} />
           </button>
+          <p className="">Home</p>{" "}
+        </div>
+
+        <div className="flex-col items-center">
+          {" "}
           <button
             onClick={() => router.push("/liked")}
             className="
-          rounded-full
-          p-2
-          bg-white
-          flex
-          items-center
-          justify-center
-          hover:opacity-75
-          transition
-          "
+            rounded-full
+            p-1
+            bg-transparent
+            flex
+            items-center
+            justify-center
+            hover:opacity-75
+            transition
+            "
           >
-            <MdOutlineBookmark className="text-black" size={25} />
+            <MdOutlineBookmark className="text-white" size={35} />
           </button>
-
-          <button
-            className="
-          rounded-full
-          p-2
-          bg-white
-          flex
-          items-center
-          justify-center
-          hover:opacity-75
-          transition
-          "
-          >
-            <BiSearch
-              onClick={() => router.push("/search")}
-              className="text-black"
-              size={25}
-            />
-          </button>
+          <p className="">Saved</p>
         </div>
-        <div className="flex justify-between items-center gap-x-4">
+
+        <div className="flex-col items-center">
+          <button
+            onClick={() => router.push("/search")}
+            className="
+            rounded-full
+            p-1
+            bg-transparent
+            
+            items-center
+            justify-center
+            hover:opacity-75
+            transition
+            "
+          >
+            <BiSearch className="text-white" size={35} />
+          </button>
+          <p className="">Search</p>
+        </div>
+
+        <div className="flex justify-between items-center gap-x-2 ">
           {user ? (
-            <div className="flex gap-x-4 items-center">
+            <div className="flex gap-x-2 items-center">
               <Button onClick={handleLogout} className="bg-white px-6 py-2">
                 Logout
               </Button>
@@ -145,4 +153,4 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
   );
 };
 
-export default Header;
+export default MobileFooter;

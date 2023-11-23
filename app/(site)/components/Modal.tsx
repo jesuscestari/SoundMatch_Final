@@ -37,7 +37,7 @@ const Modal: React.FC<ModalProps> = ({
             top-[50%] 
             left-[50%] 
             max-h-full 
-            h-full 
+           
             md:h-auto 
             md:max-h-[85vh] 
             w-full 

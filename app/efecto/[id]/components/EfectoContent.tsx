@@ -108,7 +108,7 @@ const EfectoContent: React.FC<EfectoContentProps> = async ({ songId }) => {
               Contact Author&nbsp;
               <MdEmail />
             </a>
-            <div className="inline-flex md:pl-40">
+            <div className="inline-flex pl-40">
               <DButton songId={songId} />
             </div>
           </div>
