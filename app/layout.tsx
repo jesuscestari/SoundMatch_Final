@@ -10,6 +10,7 @@ import getSongsByUserId from "@/actions/getEfectosByUserId";
 import Player from "./(site)/components/Player";
 import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
 import getSongs from "@/actions/getEfectos";
+import MobileFooter from "./(site)/components/MobileFooter";
 
 const font = Roboto({
   subsets: ["latin"],
@@ -41,6 +42,9 @@ export default async function RootLayout({
             <ModalProvider products={products} />
             <Sidebar songs={userSongs}>{children}</Sidebar>
             <Player />
+            <MobileFooter>
+              <></>
+            </MobileFooter>
           </UserProvider>
         </SupabaseProvider>
       </body>
