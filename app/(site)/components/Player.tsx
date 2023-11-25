@@ -19,12 +19,17 @@ const Player = () => {
   return (
     <div
       className="
-        fixed 
-        bottom-0 
+      md:fixed
+        relative 
+        bottom-20
+        md:bottom-0
         bg-black 
         w-full 
-      
-        h-[85px] 
+      pb-4
+      pt-2
+      md:pt-0
+      md:pb-0
+     
         px-4
       "
     >

@@ -10,8 +10,9 @@ import { Efecto } from "@/types";
 import usePlayer from "@/hooks/usePlayer";
 
 import LikeButton from "./LikeButton";
-import MediaItem from "./MediaItem";
+
 import Slider from "./Slider";
+import MediaItemAutor from "./MediaItemAutor";
 
 interface PlayerContentProps {
   song: Efecto;
@@ -95,7 +96,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
     <div className="grid grid-cols-2 md:grid-cols-3 h-full">
       <div className="flex w-full justify-start">
         <div className="flex items-center gap-x-4">
-          <MediaItem data={song} />
+          <MediaItemAutor data={song} />
           <LikeButton songId={song.id} />
         </div>
       </div>

@@ -9,12 +9,21 @@ import useSubscribeModal from "@/hooks/useSubscribeModal";
 import { postData } from "@/libs/helpers";
 import Button from "@/app/(site)/components/Button";
 
+import useAuthModal from "@/hooks/useAuthModal";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+
+import toast from "react-hot-toast";
+
 export const revalidate = 0;
 
 const AccountContent = () => {
   const router = useRouter();
   const subscribeModal = useSubscribeModal();
   const { isLoading, subscription, user } = useUser();
+
+  const authModal = useAuthModal();
+
+  const supabaseClient = useSupabaseClient();
 
   const [loading, setLoading] = useState(false);
 
@@ -37,42 +46,66 @@ const AccountContent = () => {
     setLoading(false);
   };
 
-  return (
-    <div className="mb-4 px-6 text-center object-center pt-4">
-      <div className="flex justify-center items-center ">
-        <FaUserAlt className="mb-2" size={80} />
-      </div>
-      <div>
-        <p>{user?.email}</p>
-      </div>
+  const handleLogout = async () => {
+    const { error } = await supabaseClient.auth.signOut();
 
-      {!subscription && (
-        <div className="flex flex-col  text-center object-center items-center">
-          <p>No active plan.</p>
-          <Button
-            onClick={subscribeModal.onOpen}
-            className="w-[300px] bg-orange-500 text-center object-center items-center"
-          >
-            Subscribe
-          </Button>
+    router.refresh();
+
+    if (error) {
+      toast.error(error.message);
+    } else {
+      toast.success("Logged out successfully");
+    }
+  };
+
+  return (
+    <>
+      <div className="mb-4 px-6 text-center object-center pt-4">
+        <div className="flex justify-center items-center ">
+          <FaUserAlt className="mb-2" size={80} />
         </div>
-      )}
-      {subscription && (
-        <div className=" flex flex-col text-center object-center items-center">
-          <p className="pb-4">
-            <b> {subscription?.prices?.products?.name} </b>
-            plan.
-          </p>
-          <Button
-            disabled={loading || isLoading}
-            onClick={redirectToCustomerPortal}
-            className="w-[300px] bg-amber-700/30  text-center object-center text-slate-50 "
-          >
-            Manage Subscription
-          </Button>
+        <div>
+          <p>{user?.email}</p>
         </div>
-      )}
-    </div>
+
+        {!subscription && (
+          <>
+            <div className="">
+              <p>No active plan.</p>
+            </div>
+            <div className="flex  text-center justify-center items-center">
+              <Button
+                onClick={subscribeModal.onOpen}
+                className="w-[300px] bg-orange-500 mr-1 text-center "
+              >
+                Subscribe
+              </Button>
+              <Button
+                onClick={handleLogout}
+                className="w-[300px] bg-white ml-1 text-center "
+              >
+                Logout
+              </Button>
+            </div>
+          </>
+        )}
+        {subscription && (
+          <div className=" flex flex-col text-center object-center items-center">
+            <p className="pb-4">
+              <b> {subscription?.prices?.products?.name} </b>
+              plan.
+            </p>
+            <Button
+              disabled={loading || isLoading}
+              onClick={redirectToCustomerPortal}
+              className="w-[300px] bg-amber-700/30  text-center object-center text-slate-50 "
+            >
+              Manage Subscription
+            </Button>
+          </div>
+        )}
+      </div>{" "}
+    </>
   );
 };
 

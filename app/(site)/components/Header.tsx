@@ -43,8 +43,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
     <div
       className={twMerge(
         `
-        hidden
-        md:block
+        
         w-full
         bg-gradient-to-b
         from-orange-900/90
@@ -58,14 +57,16 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
       <div className="w-full mb-4 flex items-center justify-between">
         <div className="hidden  gap-x-2 items-center"></div>
 
-        <div className="flex  gap-x-2 items-center ">
+        <div className="flex   gap-x-2 items-center ">
           <button
             onClick={() => router.push("/")}
             className="
+            hidden
+        md:block
           rounded-full
           p-2
           bg-white
-          flex
+        
           items-center
           justify-center
           hover:opacity-75
@@ -80,7 +81,8 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           rounded-full
           p-2
           bg-white
-          flex
+          hidden
+        md:block
           items-center
           justify-center
           hover:opacity-75
@@ -95,7 +97,8 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           rounded-full
           p-2
           bg-white
-          flex
+          hidden
+        md:block
           items-center
           justify-center
           hover:opacity-75
@@ -111,13 +114,18 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
         </div>
         <div className="flex justify-between items-center gap-x-4">
           {user ? (
-            <div className="flex gap-x-4 items-center">
-              <Button onClick={handleLogout} className="bg-white px-6 py-2">
+            <div className="flex  gap-x-4 items-center">
+              <Button
+                onClick={handleLogout}
+                className="bg-white   hidden
+        md:block  px-6 py-2"
+              >
                 Logout
               </Button>
               <Button
                 onClick={() => router.push("/account")}
-                className="bg-white"
+                className="bg-white   hidden
+                md:block"
               >
                 <FaUserAlt />
               </Button>
@@ -131,6 +139,8 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
               bg-white
               px-6
               py-2
+              hidden
+        md:block
               "
                 >
                   Login

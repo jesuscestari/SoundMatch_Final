@@ -43,7 +43,7 @@ const EffectsContent: React.FC<EffectsContentProps> = ({ songs }) => {
         Uploaded Sound Effects
       </p>
       {songs.map((item) => (
-        <div className="flex items-center gap-x-4 w-full">
+        <div className="flex items-center gap-x-4 w-full overflow-y-auto">
           <MediaItemSideBar
             onClick={(id: string) => onPlay(id)}
             key={item.id}
