@@ -18,7 +18,8 @@ const Account = async () => {
         w-full 
        pl-7
         pr-7
-        overflow-hidden 
+    
+    
         overflow-y-auto
       "
     >
@@ -33,7 +34,7 @@ const Account = async () => {
         <Box className="overflow-y-auto  h-full bg-neutral-100/10 flex flex-col gap-y-4   md:mr-2 rounded-md ">
           <AccountContent />
         </Box>
-        <Box className="  h-30 bg-neutral-100/10 flex flex-col gap-y-4  md:ml-2 mt-3 md:mt-0 rounded-md  items-center">
+        <Box className="hidden md:flex h-30 bg-neutral-100/10  flex-col gap-y-4  md:ml-2 mt-3 md:mt-0 rounded-md  items-center">
           <SubirContent />
         </Box>
       </div>

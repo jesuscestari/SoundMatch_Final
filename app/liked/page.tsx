@@ -16,7 +16,7 @@ const Liked = async () => {
       
         h-full 
         w-full 
-        overflow-hidden 
+      
         overflow-y-auto
       "
     >

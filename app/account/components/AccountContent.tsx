@@ -76,7 +76,7 @@ const AccountContent = () => {
             <div className="flex  text-center justify-center items-center">
               <Button
                 onClick={subscribeModal.onOpen}
-                className="w-[300px] bg-orange-500 mr-1 text-center "
+                className="w-[300px] bg-amber-700/30 mr-1 text-center text-white "
               >
                 Subscribe
               </Button>
@@ -91,17 +91,25 @@ const AccountContent = () => {
         )}
         {subscription && (
           <div className=" flex flex-col text-center object-center items-center">
-            <p className="pb-4">
+            <p className="pb-4 text-teal-400">
               <b> {subscription?.prices?.products?.name} </b>
               plan.
             </p>
-            <Button
-              disabled={loading || isLoading}
-              onClick={redirectToCustomerPortal}
-              className="w-[300px] bg-amber-700/30  text-center object-center text-slate-50 "
-            >
-              Manage Subscription
-            </Button>
+            <div className="flex  text-center justify-center items-center">
+              <Button
+                disabled={loading || isLoading}
+                onClick={redirectToCustomerPortal}
+                className="w-[150px] md:w-[200px] bg-amber-700/30 mr-1 text-center text-white"
+              >
+                Manage Plan
+              </Button>
+              <Button
+                onClick={handleLogout}
+                className="w-[150px] md:w-[200px] bg-white ml-1 text-center"
+              >
+                Logout
+              </Button>
+            </div>
           </div>
         )}
       </div>{" "}

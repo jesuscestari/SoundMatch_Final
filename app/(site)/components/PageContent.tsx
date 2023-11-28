@@ -15,9 +15,8 @@ const PageContent: React.FC<PageContentProps> = ({ efectos }) => {
 
   if (efectos.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center gap-y-2">
+      <div className="flex flex-col items-center justify-center gap-y-4 pt-9">
         <p className="text-white text-lg font-semibold">No Effects found</p>
-        <p className="text--400 text-sm">Try searching for another Effect</p>
       </div>
     );
   }

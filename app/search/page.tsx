@@ -21,7 +21,7 @@ const Search = async ({ searchParams }: SearchProps) => {
         
         h-full 
         w-full 
-        overflow-hidden 
+       
         overflow-y-auto
       "
     >

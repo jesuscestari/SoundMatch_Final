@@ -79,6 +79,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
 
       if (error) {
         toast.error(error.message);
+        supabaseClient.rpc("decremento", { row_id: songId }); //previene que sume si da error
       } else {
         setIsLiked(true);
         toast.success("Success");

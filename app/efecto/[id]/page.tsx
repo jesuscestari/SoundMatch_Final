@@ -1,3 +1,4 @@
+import MobileFooter from "@/app/(site)/components/MobileFooter";
 import EfectoContent from "./components/EfectoContent";
 
 interface pageProps {
@@ -8,19 +9,22 @@ const Efecto: React.FC<pageProps> = ({ params }) => {
   const sfxId = params.id;
 
   return (
-    <div
-      className="
+    <>
+      <div
+        className="
     bg-neutral-900
     h-full 
     w-full 
    pl-7
     pr-7
-    overflow-hidden 
+   
+   
     overflow-y-auto
   "
-    >
-      <EfectoContent songId={sfxId} />
-    </div>
+      >
+        <EfectoContent songId={sfxId} />
+      </div>
+    </>
   );
 };
 

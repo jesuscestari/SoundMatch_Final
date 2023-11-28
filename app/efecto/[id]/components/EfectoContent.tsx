@@ -4,10 +4,11 @@ import * as React from "react";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import Header from "@/app/(site)/components/Header";
 import Image from "next/image";
-import { MdEmail } from "react-icons/md";
+import { MdDateRange, MdEmail } from "react-icons/md";
 import DButton from "@/app/(site)/components/DButton";
 import { useUser } from "@/hooks/useUser";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
+import { FaUserAstronaut } from "react-icons/fa";
 
 interface EfectoContentProps {
   songId: string;
@@ -73,6 +74,26 @@ const EfectoContent: React.FC<EfectoContentProps> = async ({ songId }) => {
 
   const autorNombre = autor?.split("@")[0];
 
+  const getFecha = async () => {
+    const { data } = await supabaseClient
+      .from("efectos")
+      .select("created_at")
+      .eq("id", songId)
+      .single();
+
+    const rawDate = data?.created_at;
+
+    if (rawDate) {
+      const dateObject = new Date(rawDate);
+
+      const formattedDate = dateObject.toLocaleDateString();
+
+      return formattedDate;
+    } else {
+      return "Date not available";
+    }
+  };
+
   return (
     <>
       <Header className="from-bg-neutral-900">
@@ -83,14 +104,14 @@ const EfectoContent: React.FC<EfectoContentProps> = async ({ songId }) => {
         </div>
       </Header>
 
-      <div className="w-full grid place-items-center">
-        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="w-full grid place-items-center  ">
+        <div className="max-w-sm  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
           <Image
             className="rounded-t-lg"
             src={imageUrl}
             alt="Image"
             width={500}
-            height={100}
+            height={10}
           />
 
           <div className="p-5">
@@ -98,8 +119,14 @@ const EfectoContent: React.FC<EfectoContentProps> = async ({ songId }) => {
               {titulo}
             </h5>
 
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              By {autorNombre}
+            <p className="mt-2 font-normal text-gray-500 dark:text-gray-400 flex">
+              <FaUserAstronaut size={18} color="#9F380E" className="mr-1" />{" "}
+              Author: {autorNombre}
+            </p>
+
+            <p className="mb-3 mt-2 font-normal text-gray-500 dark:text-gray-400 flex">
+              <MdDateRange size={18} color="#9F380E" className="mr-1" />{" "}
+              Uploaded: {getFecha()}
             </p>
             <a
               onClick={mandarMail}
@@ -108,7 +135,7 @@ const EfectoContent: React.FC<EfectoContentProps> = async ({ songId }) => {
               Contact Author&nbsp;
               <MdEmail />
             </a>
-            <div className="inline-flex pl-40">
+            <div className="inline-flex pl-32 md:pl-40 ">
               <DButton songId={songId} />
             </div>
           </div>
