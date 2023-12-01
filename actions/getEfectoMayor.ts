@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 import { Efecto } from "@/types";
 
-const getEfectos = async (): Promise<Efecto[]> => {
+const getEfectoMayor = async (): Promise<Efecto[]> => {
   const supabase = createServerComponentClient({
     cookies: cookies,
   });
@@ -11,7 +11,7 @@ const getEfectos = async (): Promise<Efecto[]> => {
   const { data, error } = await supabase
     .from("efectos")
     .select("*")
-    .order("created_at", { ascending: false })
+    .order("puntos", { ascending: false })
     .limit(4);
 
   if (error) {
@@ -21,4 +21,4 @@ const getEfectos = async (): Promise<Efecto[]> => {
   return (data as any) || [];
 };
 
-export default getEfectos;
+export default getEfectoMayor;

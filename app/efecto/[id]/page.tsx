@@ -13,13 +13,13 @@ const Efecto: React.FC<pageProps> = ({ params }) => {
       <div
         className="
     bg-neutral-900
-    h-full 
+   
     w-full 
    pl-7
     pr-7
    
    
-    overflow-y-auto
+    
   "
       >
         <EfectoContent songId={sfxId} />

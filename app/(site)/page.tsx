@@ -1,22 +1,26 @@
 import getSongs from "@/actions/getEfectos";
+import getEfectoMayor from "@/actions/getEfectoMayor";
 import Header from "./components/Header";
-import MobileFooter from "./components/MobileFooter";
+
 import { AiOutlineStock } from "react-icons/ai";
 import PageContent from "./components/PageContent";
+import { BsArrowUp } from "react-icons/bs";
+import { RiSoundModuleFill } from "react-icons/ri";
 
 export const revalidate = 0; // Revalida la pagina para que no guarde cache y siempre se muestre los efectos actualizados
 
 export default async function Home() {
   const songs = await getSongs();
+  const efectoMayor = await getEfectoMayor();
 
   return (
     <div
       className=" bg-neutral-900 
     rounded-lg 
-    h-full 
+     
     w-full 
    
-    overflow-y-auto"
+   "
     >
       <Header>
         <div className="mb-2 ">
@@ -25,7 +29,7 @@ export default async function Home() {
           text-white
           text-3xl
           font-semibold
-          text-center
+         
           mt-9
           "
           >
@@ -45,16 +49,29 @@ export default async function Home() {
         </div>
       </Header>
       <div className="mt-2 mb-7 px-6">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-center items-center ">
           <h1 className="text-white flex text-2xl font-semibold ">
             {" "}
-            <AiOutlineStock size={30} />
-            <span className="pl-2"> Recent SFX</span>
+            <RiSoundModuleFill size={30} />
+            <span className="pl-2 "> Most Recent </span>
           </h1>
         </div>
         <div>
           <div>
             <PageContent efectos={songs} />
+          </div>
+        </div>
+      </div>
+      <div className="mt-2 mb-7 px-6">
+        <div className="flex justify-center items-center">
+          <h1 className="text-white flex text-2xl font-semibold ">
+            <AiOutlineStock size={30} />
+            <span className="pl-2"> Most Saved</span>
+          </h1>
+        </div>
+        <div>
+          <div>
+            <PageContent efectos={efectoMayor} />
           </div>
         </div>
       </div>

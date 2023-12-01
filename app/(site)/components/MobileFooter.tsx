@@ -52,16 +52,16 @@ const MobileFooter: React.FC<MobileFooterProps> = ({ className }) => {
     <div
       className={twMerge(
         `
-      block
+      
       md:hidden
-      fixed
+      
       bottom-0
-  
+        sticky
       w-full
       bg-orange-900/50
       pl-4
       pr-4
-      pt-2
+     
       pb-4
       `,
         className
