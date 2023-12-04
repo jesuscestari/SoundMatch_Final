@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import useAuthModal from "@/hooks/useAuthModal";
 
 import Modal from "./Modal";
+import { Provider } from "@supabase/supabase-js";
 
 const AuthModal = () => {
   const { session } = useSessionContext();
@@ -19,6 +20,9 @@ const AuthModal = () => {
   const { onClose, isOpen } = useAuthModal();
 
   const supabaseClient = useSupabaseClient();
+
+  const isMobile = window.innerWidth <= 768;
+  const provide: Provider[] = isMobile ? [] : ["google"];
 
   //este useEffect es para que cuando se loguee se cierre el modal
   useEffect(() => {
@@ -43,7 +47,7 @@ const AuthModal = () => {
     >
       <Auth
         supabaseClient={supabaseClient}
-        providers={["google"]}
+        providers={provide}
         magicLink={false}
         appearance={{
           theme: ThemeSupa,
@@ -51,7 +55,7 @@ const AuthModal = () => {
             default: {
               colors: {
                 brand: "#404040",
-                brandAccent: "#4c1d95 ",
+                brandAccent: "#C2410C ",
               },
             },
           },
